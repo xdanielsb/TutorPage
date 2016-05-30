@@ -128,7 +128,7 @@ if LOCAL==False:
           os.path.join(PROJECT_PATH, "static"),
      )
  
-     STATIC_ROOT = '/app/static/' 
+     STATIC_ROOT = '/app/static' 
 else:
      STATIC_ROOT = os.path.join(PROJECT_PATH, "static")
  
