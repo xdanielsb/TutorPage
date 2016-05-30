@@ -121,7 +121,7 @@ USE_TZ = True
 
 PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 
-LOCAL=True
+LOCAL=False
 
 if LOCAL==False:
      STATICFILES_DIRS = (
