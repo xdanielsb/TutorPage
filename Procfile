@@ -1,1 +1,1 @@
-web: gunicorn CleverPage.wsgi --log-file -
+web: gunicorn mypage.wsgi --log-file -
