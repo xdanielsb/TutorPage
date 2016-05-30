@@ -125,10 +125,10 @@ LOCAL=False
 
 if LOCAL==False:
      STATICFILES_DIRS = (
-
+          os.path.join(PROJECT_PATH, "static"),
      )
  
-     STATIC_ROOT = os.path.join(PROJECT_PATH, "static") 
+     STATIC_ROOT = os.path.join(PROJECT_PATH,'../static') 
 else:
      STATIC_ROOT = os.path.join(PROJECT_PATH, "static")
  
