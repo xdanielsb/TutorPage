@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', 'mypage.views.home', name='home'), #home
     url(r'^dashboard/', 'mypage.views.dashboard', name='dashboard'), #dashboard
 ]
+
+if not settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    )
