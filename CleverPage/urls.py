@@ -23,9 +23,13 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', 'mypage.views.home', name='home'), #home
     url(r'^dashboard/', 'mypage.views.dashboard', name='dashboard'), #dashboard
+    url(r'^dynamicProgramming/', 'mypage.views.dynamicProgramming', name='dynamicProgramming'), #dynamic Programming
+    url(r'^boltzman/', 'mypage.views.boltzman', name='boltzman'), #boltzman
 ]
 
-urlpatterns += patterns('',
+#Help me to see the static files
+urlpatterns += patterns ('',
         (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 )
+
 
