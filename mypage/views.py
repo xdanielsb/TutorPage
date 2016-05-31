@@ -23,7 +23,7 @@ def dynamicProgramming(request):
     nStates = request.POST.get("nStates", False)
     numStages = int(request.POST.get("nStages", False)) 
     apuesta = int(request.POST.get("bet", False))
-
+    data = ""
     if(nStates != False):
         n = int(nStates)
         probabilities = {}
