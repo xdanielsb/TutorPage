@@ -9,7 +9,7 @@
         var nStages = +document.getElementById("nStages").value;  
         var bet = +document.getElementById("bet").value;  
         var fields = "";
-        fields += "<center><h3>Ingrese las probabilidades</h3><br>";
+        fields += "<center><h3>Insert the probabilities</h3><br>";
         fields += "<form action='/dynamicProgramming/' method ='post' > ";
         fields += "<input type='hidden'  name='nStates' value= "+nStates+">";
         fields += "<input type='hidden'  name='nStages' value= "+nStages+">";
@@ -18,7 +18,7 @@
 
             fields += "<div class='col-lg-2'>";
             fields += "<div class='input-group'>";
-            fields += "<span class='input-group-addon' id='basic-addon3'>"+i;
+            fields += "<span class='input-group-addon' id='basic-addon3'>Probability"+i;
             fields += "</span> <input type='text' id="+i+" name="+i+"   class='form-control' aria-label='...'>";
             fields += "</div></div>";
         }
