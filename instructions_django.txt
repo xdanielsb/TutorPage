@@ -1,3 +1,6 @@
+//activate the virtual env
+source virtual_env_django/bin/activate
+
 //Create the project django
 	django-admin startproject myproject
 
