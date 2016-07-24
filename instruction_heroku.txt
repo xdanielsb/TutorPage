@@ -1,0 +1,11 @@
+//First put the credentials email and password
+1- heroku login
+//Create file called requirements.txt  
+2- touch requirements.txt
+//Con el virtual-env activo
+3- pip freeze > requirements.txt
+//If the application uses python 3 it is necesary create a file especificando el runtime
+4- touch runtime.txt
+// cat runtime.txt  python-3.5.1
+// Create a file Procfile with out extensions
+5- touch Procfile 
