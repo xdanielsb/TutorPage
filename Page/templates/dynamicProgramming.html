@@ -1,0 +1,105 @@
+{% extends "header.html" %}
+ 
+ {% block header %}
+    <script>
+    function addElement(){
+
+        var container = document.getElementById("probabilities");  
+        var nStates = +document.getElementById("nStates").value;  
+        var nStages = +document.getElementById("nStages").value;  
+        var bet = +document.getElementById("bet").value;  
+        var fields = "";
+        fields += "<center><h3>Insert the probabilities</h3><br>";
+        fields += "<form action='/dynamicProgramming/' method ='post' > ";
+        fields += "<input type='hidden'  name='nStates' value= "+nStates+">";
+        fields += "<input type='hidden'  name='nStages' value= "+nStages+">";
+        fields += "<input type='hidden'  name='bet' value= "+bet+">";
+        for (i = 1; i <= nStates; i++) {
+
+            fields += "<div class='col-lg-2'>";
+            fields += "<div class='input-group'>";
+            fields += "<span class='input-group-addon' id='basic-addon3'>Probability"+i;
+            fields += "</span> <input type='text' id="+i+" name="+i+"   class='form-control' aria-label='...'>";
+            fields += "</div></div>";
+        }
+        fields += "<br><br><input type='submit' value ='send'>  {% csrf_token %} </form></center>";
+        container.innerHTML = fields;
+    }
+    </script>
+ {% endblock %} 
+
+{% block body %}
+
+<div class="container-fluid">
+   
+    
+    <h1>Stochastic Dynamic Programming</h1><br>
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#onePlayer" aria-controls="home" role="tab" data-toggle="tab">One Player</a>
+        </li>
+        <li >
+            <a href="#twoPlayers" aria-controls="profile" role="tab" data-toggle="tab">Two Players</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">          
+        <div role="tabpanel" class="tab-pane  active" id="onePlayer"> 
+            
+            <br>
+            <div class="row">
+
+                <div class="col-lg-3">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">Number of stages</span>
+                        <input type="text" class="form-control" id="nStages" aria-label="...">
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">Number of states</span>
+                        <input type="text" class="form-control" id="nStates" aria-label="...">
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">Bet</span>    
+                        <input type="text" class="form-control" id="bet" aria-label="...">
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-default" aria-label="Left Align " onclick="addElement()">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    </button>
+                </div>
+
+            </div>
+
+            <br><br>
+            
+
+            <div id ="probabilities">
+            </div>
+            {%if data%}
+
+            {{data| safe}}
+            {%endif%}
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="twoPlayers"> 
+            euo
+        </div>
+
+    </div>
+
+</div>
+     
+
+{% endblock %}
+
+
+
+
+
+

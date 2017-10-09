@@ -1,0 +1,41 @@
+{% extends "header.html" %}
+
+{% block body %}
+
+  <!-- Nav tabs -->
+
+<div class="container-fluid">
+    
+    <h1>Dash Board</h1><br>
+
+<ul class="nav nav-tabs" role="tablist">
+    {% for tab_name in content %}
+        {%if  tab_name == "Programs" %}
+            <li  class="active"><a href="#{{tab_name}}" aria-controls="home" role="tab" data-toggle="tab">{{tab_name}}</a></li>
+        {%else %}
+            <li><a href="#{{tab_name}}" aria-controls="profile" role="tab" data-toggle="tab">{{tab_name}}</a></li>
+        {%endif%}
+    {% endfor %}
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    {% for tab_name,  values in content.items %}   
+        {%if  tab_name == "Programs" %}
+            <div role="tabpanel" class="tab-pane active" id="{{tab_name}}"> 
+                <ul>
+                <br>
+        {%else %}
+            <div role="tabpanel" class="tab-pane" id="{{tab_name}}"> 
+                <ul><br>
+        {%endif%}
+        {% for topic, link  in values.items %}
+                    <li><a href="{{link}}" aria-controls="profile" >{{topic}}</a></li><br>
+        {% endfor %}
+                </ul>
+            </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
